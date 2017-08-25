@@ -104,12 +104,13 @@ mainmenu(){
 while :
 do
     clear
-    cat<<"EOF"
-________            ____________     _____   __               ______
-___  __ \_____      ____  _/_  /_    ___  | / /________      ____  /
-__  / / /  __ \      __  / _  __/    __   |/ /_  __ \_ | /| / /_  / 
-_  /_/ // /_/ /     __/ /  / /_      _  /|  / / /_/ /_ |/ |/ / /_/  
-/_____/ \____/      /___/  \__/      /_/ |_/  \____/____/|__/ (_)   
+    cat<<EOF
+  n0logic
+  ________            ____________     _____   __               ______
+  ___  __ \_____      ____  _/_  /_    ___  | / /________      ____  /
+  __  / / /  __ \      __  / _  __/    __   |/ /_  __ \_ | /| / /_  / 
+  _  /_/ // /_/ /     __/ /  / /_      _  /|  / / /_/ /_ |/ |/ / /_/  
+  /_____/ \____/      /___/  \__/      /_/ |_/  \____/____/|__/ (_)   
                                                                     
     ==============================
     Do It Now! v2
@@ -117,31 +118,73 @@ _  /_/ // /_/ /     __/ /  / /_      _  /|  / / /_/ /_ |/ |/ / /_/
     ------------------------------
     Please enter your choice:
 
-    Pentesting Tools (1)
-    System Services  (2)
-    Updates / Setup  (3)
-    something else   (4)
-    Misc Options     (5)
-    Reboot System    (6)
+    Tools Menu		 (1)
+    Software Menu   	 (2)
+    System Menu	    	 (3)
+    Misc Stuff      	 (4)
+    Reboot System   	 (5)
            (Q)uit
     ------------------------------
 EOF
     read -n1 -s
     case "$REPLY" in
-    "1")  pentools ;;
-    "2")  echo "Try Harder!" ;;
-    "3")  installmenu ;;
-    "4")  echo "Not yet implemented" ;;
-    "5")  echo "Not yet implemented" ;;
-    "6")  g_reboot;;
+    "1")  toolsmenu ;;
+    "2")  softwaremenu ;;
+    "3")  systemmenu ;;
+    "4")  miscmenu ;;
+    "5")  g_reboot;;
     "Q")  exit                      ;;
     "q")  exit                      ;;
-     * )  echo "invalid option"     ;;
+     * )  echo "invalid option... Try Harder!"     ;;
     esac
     sleep 1
 done
 }
 
+# toolsmenu - Main menu for Tools
+toolsmenu(){
+while :
+do
+    clear
+    cat<< "EOF"
+n0logic
+  ________            ____________     _____   __               ______
+  ___  __ \_____      ____  _/_  /_    ___  | / /________      ____  /
+  __  / / /  __ \      __  / _  __/    __   |/ /_  __ \_ | /| / /_  / 
+  _  /_/ // /_/ /     __/ /  / /_      _  /|  / / /_/ /_ |/ |/ / /_/  
+  /_____/ \____/      /___/  \__/      /_/ |_/  \____/____/|__/ (_)   
+                                                                    
+    ==============================
+    Penetration Testing Tools
+    ------------------------------
+    Please enter your choice:
+
+    enum Script      	(1)
+    dirb            	(2)
+    nikto            	(3)
+    Wireless Tools  	(4)
+    Discover Tools   	(5)
+    Hydra            	(6)
+           (B)ack   (Q)uit
+    ------------------------------
+EOF
+    read -n1 -s
+    case "$REPLY" in
+    "1")  enumscript ;;
+    "2")  e_dirb ;;
+    "3")  e_nikto ;;
+    "4")  e_wireless ;;
+    "5")  e_discover;;
+    "6")  e_hydra;;
+    "B")  mainmenu ;;
+    "b")  mainmenu ;;
+    "Q")  exit                      ;;
+    "q")  exit   ;;
+     * )  echo "invalid option"     ;;
+    esac
+    sleep 1
+done
+}
 
 # Run the splash screen!
 splashit
