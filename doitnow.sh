@@ -72,6 +72,11 @@ do
 
 Press any key to continue!				Do It Now! v2 - 2017 
 EOF
+	# Check for root and inform user
+	if [ "$EUID" -ne 0 ]
+  		then echo -e "Please run as root or sudo with sudo ./doitnow.sh"
+  		exit
+	fi
 	# Check for updates via github
 	echo -e "Checking for script updates via GitHub!"
 	if [ $LOCAL = $REMOTE ]; then
