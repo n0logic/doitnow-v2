@@ -10,27 +10,23 @@
 # Good day sir/madam!
 #
 
-# Lets add some color this time around!
-ESC_SEQ="\x1b["
-COL_RESET=$ESC_SEQ"39;49;00m"
-RED=$ESC_SEQ"31;01m"
-GREEN=$ESC_SEQ"32;01m"
-YELLOW=$ESC_SEQ"33;01m"
-BLUE=$ESC_SEQ"34;01m"
-MAGENTA=$ESC_SEQ"35;01m"
-CYAN=$ESC_SEQ"36;01m"
+# Print that sexy new banner! Heck yah!!!
+banner(){
+cat << "EOF"
+  n0logic
+  ________            ____________     _____   __               ______
+  ___  __ \_____      ____  _/_  /_    ___  | / /________      ____  /
+  __  / / /  __ \      __  / _  __/    __   |/ /_  __ \_ | /| / /_  / 
+  _  /_/ // /_/ /     __/ /  / /_      _  /|  / / /_/ /_ |/ |/ / /_/  
+  /_____/ \____/      /___/  \__/      /_/ |_/  \____/____/|__/ (_)   
+                                                                    
+EOF
+}
 
-# git variables - Credit: Neil Mayhew on Stackoverflow 
-UPSTREAM=${1:-'@{u}'}
-LOCAL=$(git rev-parse @)
-REMOTE=$(git rev-parse "$UPSTREAM")
-BASE=$(git merge-base @ "$UPSTREAM")
+BANNER=$(banner)
 
-# Function mainmenu - Main Menu, first function called.
-splashit(){
-while :
-do
-    clear
+# Print that sexy splash screen for us! 
+splashart(){
     cat<<"EOF"
     
                   dMMMMMMMMMMMx;''lONWMMMMMN0l'''dWMMMMMMMMMMd                           
@@ -69,7 +65,34 @@ do
                 \/_/\/_/\/___/ \/____/\/___/  \/___L\ \/_/\/____/
                                                 /\____/          
                                                 \_/__/       
+EOF
+}
 
+SPLASHART=$(splashart)
+
+# Lets add some color this time around!
+ESC_SEQ="\x1b["
+COL_RESET=$ESC_SEQ"39;49;00m"
+RED=$ESC_SEQ"31;01m"
+GREEN=$ESC_SEQ"32;01m"
+YELLOW=$ESC_SEQ"33;01m"
+BLUE=$ESC_SEQ"34;01m"
+MAGENTA=$ESC_SEQ"35;01m"
+CYAN=$ESC_SEQ"36;01m"
+
+# git variables - Credit: Neil Mayhew on Stackoverflow 
+UPSTREAM=${1:-'@{u}'}
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse "$UPSTREAM")
+BASE=$(git merge-base @ "$UPSTREAM")
+
+# Function mainmenu - Main Menu, first function called.
+splashit(){
+while :
+do
+    clear
+    /bin/echo -e "\e[1;31m $SPLASHART \e[0m"
+    cat<<EOF
 Press any key to continue!				Do It Now! v2 - 2017 
 EOF
 	# Check for root and inform user
@@ -104,14 +127,9 @@ mainmenu(){
 while :
 do
     clear
+	/bin/echo -e "\e[1;31m $BANNER \e[0m"
     cat<<EOF
-  n0logic
-  ________            ____________     _____   __               ______
-  ___  __ \_____      ____  _/_  /_    ___  | / /________      ____  /
-  __  / / /  __ \      __  / _  __/    __   |/ /_  __ \_ | /| / /_  / 
-  _  /_/ // /_/ /     __/ /  / /_      _  /|  / / /_/ /_ |/ |/ / /_/  
-  /_____/ \____/      /___/  \__/      /_/ |_/  \____/____/|__/ (_)   
-                                                                    
+                                                                 
     ==============================
     Do It Now! v2
     Newly renovated!
@@ -146,14 +164,9 @@ toolsmenu(){
 while :
 do
     clear
+	/bin/echo -e "\e[1;31m $BANNER \e[0m"
     cat<< "EOF"
-n0logic
-  ________            ____________     _____   __               ______
-  ___  __ \_____      ____  _/_  /_    ___  | / /________      ____  /
-  __  / / /  __ \      __  / _  __/    __   |/ /_  __ \_ | /| / /_  / 
-  _  /_/ // /_/ /     __/ /  / /_      _  /|  / / /_/ /_ |/ |/ / /_/  
-  /_____/ \____/      /___/  \__/      /_/ |_/  \____/____/|__/ (_)   
-                                                                    
+
     ==============================
     Penetration Testing Tools
     ------------------------------
