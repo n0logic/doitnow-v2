@@ -1,12 +1,10 @@
 #!/bin/bash
 # doitnow.sh
 # Do It Now! v2 - New and improved (maybe)
-# Author: n0logic
+# Author: n0logic / besgood
 # Date: 8/25/2017
 # Updated: 8/25/2017
 # on github @ https://github.com/n0logic/doitnow-v2/
-# Reach me via Twitterzz @realn0logic
-# or Emailzz via daniel@n0logic.com
 # Good day sir/madam!
 #
 
