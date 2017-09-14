@@ -11,7 +11,7 @@
 # Print that sexy new banner! Heck yah!!!
 banner(){
 cat << "EOF"
-  n0logic
+ n0logic & besgood present...
 
 ·▄▄▄▄            ▪  ▄▄▄▄▄     ▐ ▄       ▄▄▌ ▐ ▄▌▄▄ ▄▄ ▄▄ 
 ██▪ ██ ▪         ██ •██      •█▌▐█▪     ██· █▌▐███▌██▌██▌
